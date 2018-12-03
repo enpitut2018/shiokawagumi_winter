@@ -1,1 +1,0 @@
-# shiokawagumi_winter
