@@ -37,10 +37,20 @@ function getWord() {
 }
 
 function createView(words) {
-	let html = `<h4>Words</h4>`
-	for (var i=0; i < words.length; i++){
-		html += `<p>` + words[i] + `</p>`;
-	}
+	let html = `<h4>Words</h4>` + `<p>${words[0]}, ${words[1]}, ${words[2]}, ${words[3]}</p>`;
+	html += `<h4>Title</h4>`;
+
+	// shuffleとtitle
+	words = _.shuffle(words);
+	html += `<p>${words[0]}と${words[1]}一気飲み</p>`;
+	words = _.shuffle(words);
+	html += `<p>${words[0]}の中心で${words[1]}への愛を叫ぶ</p>`;
+	words = _.shuffle(words);
+	html += `<p>\[完全${words[0]}\]${words[1]}必勝法</p>`;
+	words = _.shuffle(words);
+	html += `<p>${words[0]}で${words[1]}を100倍面白くする方法</p>`;
+	words = _.shuffle(words);
+	html += `<p>${words[0]}使って1人${words[1]}</p>`;
 	return html;
 }
 
