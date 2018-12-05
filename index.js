@@ -37,8 +37,10 @@ function getWord() {
 }
 
 function createView(words) {
-	let html = `<h4>Words</h4>` + `<p>${words[0]}, ${words[1]}, ${words[2]}, ${words[3]}</p>`;
-	html += `<h4>Title</h4>`;
+	let html = `<div class="balloon" style="margin-top: 30px;"><div class="container with-title"><h3 class="title">たんご</h3>`
+		+ `<p>${words[0]}, ${words[1]}, ${words[2]}, ${words[3]}</p></div>`;
+
+	html += `<div class="container with-title"><h3 class="title">たいとる</h3>`;
 
 	// shuffleとtitle
 	words = _.shuffle(words);
@@ -51,6 +53,9 @@ function createView(words) {
 	html += `<p>${words[0]}で${words[1]}を100倍面白くする方法</p>`;
 	words = _.shuffle(words);
 	html += `<p>${words[0]}使って1人${words[1]}</p>`;
+
+	html += `</div>`;
+	html += `</div>`;
 	return html;
 }
 

@@ -1,14 +1,22 @@
 <!DOCTYPE html>
-<html lang="jn">
+<html lang="ja">
 	<head>
 		<meta charset="utf-8">
 		<title>Title Generator</title>
+		<!-- minify -->
+		<link href="./css/nes.min.css" rel="stylesheet" />
+		<link href="./style.css" rel="stylesheet" />
 	</head>
 	<body>
-		<h2>Get title</h2>
-		<button onclick="main();">Get title</button>
-
-		<div id="result"></div>
+		<section class="container with-title is-center">
+			<div class="message -rihgt">
+				<p class="balloon">ゆーちゅーばーよ　どうが　たいとるを　せいせい　しなさい。</p>
+			</div>
+			<div>
+				<button type="button" class="btn" onclick="main();">せいせい</button>
+			</div>
+			<div id="result"></div>
+		</section>
 
 		<script src="underscore-min.js"></script>
 		<script src="index.js?v=4"></script>
