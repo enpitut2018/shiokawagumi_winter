@@ -1,6 +1,6 @@
 function main() {
-	// const word = getWord();
-	const word = 'test';
+	const word = getWord();
+	console.log(word);
 	getWords(word)
 		.then((words) => createView(words))
 		.then((view) => displayView(view))
@@ -12,7 +12,9 @@ function main() {
 function getWords(word) {
 	return new Promise((resolve, reject) => {
 		const request = new XMLHttpRequest();
-		request.open("GET", 'https://youtubetitleapitest.herokuapp.com/random');
+		var url = word ?
+			`https://youtube-title-mecab.herokuapp.com/search/${word}` : `https://youtube-title-mecab.herokuapp.com/random`;
+		request.open("GET", url);
 			request.addEventListener("load", (event) => {
 				if (event.target.status !== 200) {
 					reject(new Error(`${event.target.status}: ${event.target.statusText}`));
@@ -62,24 +64,4 @@ function createView(words) {
 function displayView(view) {
 	const result = document.getElementById("result");
 	result.innerHTML = view;
-}
-
-function escapeSpecialChars(str) {
-	return str
-		.replace(/&/g, "&amp;")
-		.replace(/</g, "&lt;")
-		.replace(/>/g, "&gt;")
-		.replace(/"/g, "&quot;")
-		.replace(/'/g, "&#039;");
-}
-
-function escapeHTML(strings, ...values) {
-	return strings.reduce((result, string, i) => {
-		const value = values[i - 1];
-		if (typeof value === "string") {
-			return result + escapeSpecialChars(value) + string;
-		} else {
-			return result + String(value) + string;
-		}
-	});
 }
