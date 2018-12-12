@@ -1,6 +1,7 @@
 @font-face {
  font-family: 'MyFont';
- src: url('./font/misaki_gothic.ttf');
+/*  src: url('./font/misaki_gothic.ttf'); */
+ src: url('./font/NuAnkoMochiFw-Reg.otf');
 }
 
 body {
