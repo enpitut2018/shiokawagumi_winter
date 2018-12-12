@@ -45,16 +45,81 @@ function createView(words) {
 	html += `<div class="container with-title"><h3 class="title">たいとる</h3>`;
 
 	// shuffleとtitle
-	words = _.shuffle(words);
-	html += `<p>${words[0]}と${words[1]}一気飲み</p>`;
-	words = _.shuffle(words);
-	html += `<p>${words[0]}の中心で${words[1]}への愛を叫ぶ</p>`;
-	words = _.shuffle(words);
-	html += `<p>\[完全${words[0]}\]${words[1]}必勝法</p>`;
-	words = _.shuffle(words);
-	html += `<p>${words[0]}で${words[1]}を100倍面白くする方法</p>`;
-	words = _.shuffle(words);
-	html += `<p>${words[0]}使って1人${words[1]}</p>`;
+    var category = data.categoryId;
+    switch(category)
+    {
+        case "1": //映画とアニメ
+            words = _.shuffle(words);
+            html += `<p>${words[0]}の中心で${words[1]}への愛を叫ぶ</p>`;
+            words = _.shuffle(words);
+            html += `<p>『${words[0]}と${words[1]}』をレビュー</p>`;
+            words = _.shuffle(words);
+            html += `<p>『${words[0]}』から学んだ${words[1]}のこと</p>`;
+            words = _.shuffle(words);
+            html += `<p>【架空映画】『${words[0]}と${words[1]}』の架空予告やってみた</p>`;
+        case "2": //自動車と乗り物
+            words = _.shuffle(words);
+            html += `<p>${words[0]}の中心で${words[1]}への愛を叫ぶ</p>`;
+            words = _.shuffle(words);
+            html += `<p>${words[0]}で${words[1]}を100倍面白くする方法</p>`;
+            words = _.shuffle(words);
+            html += `<p>${words[0]}で1人${words[1]}</p>`;
+        case "10": //音楽、テンプレで
+            words = _.shuffle(words);
+            html += `<p>${words[0]}の中心で${words[1]}への愛を叫ぶ</p>`;
+            words = _.shuffle(words);
+            html += `<p>${words[0]}で${words[1]}を100倍面白くする方法</p>`;
+            words = _.shuffle(words);
+            html += `<p>『${words[0]}』と『${words[1]}』を歌ってみた</p>`;
+            words = _.shuffle(words);
+            html += `<p>『${words[0]}』と『${words[1]}』を踊ってみた</p>`;
+            words = _.shuffle(words);
+            html += `<p>【声真似】『${words[0]}』と『${words[1]}』を歌ってみた</p>`;
+            words = _.shuffle(words);
+            html += `<p>『${words[0]}』と『${words[1]}』をヘリウムガス吸って歌ってみた</p>`;
+        case "15":  //ペットと動物
+            words = _.shuffle(words);
+            html += `<p>${words[0]}の中心で${words[1]}への愛を叫ぶ</p>`;
+            words = _.shuffle(words);
+            html += `<p>${words[0]}で${words[1]}サプライズ</p>`;
+            words = _.shuffle(words);
+            html += `<p>${words[0]}と${words[1]}で遊んでみた</p>`;
+            words = _.shuffle(words);
+            html += `<p>\[完全${words[0]}\]${words[1]}必勝法</p>`;
+            words = _.shuffle(words);
+            html += `<p>${words[0]}使って1人${words[1]}</p>`;
+        case "17":  //スポーツ
+            html += `<p>${words[0]}の中心で${words[1]}への愛を叫ぶ</p>`;
+            words = _.shuffle(words);
+            html += `<p>\[完全勝利\]${words[1]}必勝法</p>`;
+            words = _.shuffle(words);
+            html += `<p>${words[0]}で${words[1]}を100倍面白くする方法</p>`;
+            words = _.shuffle(words);
+            html += `<p>${words[0]}使って1人${words[1]}</p>`;
+            words = _.shuffle(words);
+            html += `<p>${words[0]}と${words[1]}で新しい競技を考えてみた</p>`;
+        case "19": //旅行とイベント
+            words = _.shuffle(words);
+            html += `<p>${words[0]}で${words[1]}を100倍面白くする方法</p>`;
+            words = _.shuffle(words);
+            html += `<p>${words[0]}使って1人${words[1]}</p>`;
+            words = _.shuffle(words);
+            html += `<p>${words[0]}の中心で${words[1]}への愛を叫ぶ</p>`;
+            words = _.shuffle(words);
+            html += `<p>【完全制覇】${words[1]}攻略法</p>`;
+            
+        default:
+            words = _.shuffle(words);
+            html += `<p>${words[0]}と${words[1]}一気飲み</p>`;
+            words = _.shuffle(words);
+            html += `<p>${words[0]}の中心で${words[1]}への愛を叫ぶ</p>`;
+            words = _.shuffle(words);
+            html += `<p>\[完全${words[0]}\]${words[1]}必勝法</p>`;
+            words = _.shuffle(words);
+            html += `<p>${words[0]}で${words[1]}を100倍面白くする方法</p>`;
+            words = _.shuffle(words);
+            html += `<p>${words[0]}使って1人${words[1]}</p>`;
+    }
 
 	html += `</div>`;
 	html += `</div>`;
