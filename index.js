@@ -12,8 +12,8 @@ function main() {
 function getWords(word) {
 	return new Promise((resolve, reject) => {
 		const request = new XMLHttpRequest();
-		var url = word ?
-			`https://youtube-title-mecab.herokuapp.com/search/${word}` : `https://youtube-title-mecab.herokuapp.com/random`;
+		let url = word ?
+			`https://youtube-title-mecab.herokuapp.com/search?word=${word}` : `https://youtube-title-mecab.herokuapp.com/random`;
 		request.open("GET", url);
 			request.addEventListener("load", (event) => {
 				if (event.target.status !== 200) {
@@ -44,17 +44,20 @@ function createView(words) {
 
 	html += `<div class="container with-title"><h3 class="title">たいとる</h3>`;
 
+	// 入力した単語はタイトルに含める
+	let word = words[0];
+	words.shift()
 	// shuffleとtitle
 	words = _.shuffle(words);
-	html += `<p>${words[0]}と${words[1]}一気飲み</p>`;
+	html += `<p>${word}と${words[1]}一気飲み</p>`;
 	words = _.shuffle(words);
-	html += `<p>${words[0]}の中心で${words[1]}への愛を叫ぶ</p>`;
+	html += `<p>${word}の中心で${words[1]}への愛を叫ぶ</p>`;
 	words = _.shuffle(words);
-	html += `<p>\[完全${words[0]}\]${words[1]}必勝法</p>`;
+	html += `<p>\[完全${word}\]${words[1]}必勝法</p>`;
 	words = _.shuffle(words);
-	html += `<p>${words[0]}で${words[1]}を100倍面白くする方法</p>`;
+	html += `<p>${word}で${words[1]}を100倍面白くする方法</p>`;
 	words = _.shuffle(words);
-	html += `<p>${words[0]}使って1人${words[1]}</p>`;
+	html += `<p>${word}使って1人${words[1]}</p>`;
 
 	html += `</div>`;
 	html += `</div>`;
