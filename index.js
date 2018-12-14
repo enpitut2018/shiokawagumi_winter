@@ -1,7 +1,11 @@
 function main() {
   const word = getWord();
+
+  console.log(word);
+  document.getElementById("title").disabled = "disabled";
   getWords(word)
-    .then((data) => createView(data))
+    .then((words) => createView(words))
+
     .then((view) => displayView(view))
     .catch((error) => {
       console.error(`エラーが発生しました (${error})`);
@@ -11,7 +15,7 @@ function main() {
 function getWords(word) {
   return new Promise((resolve, reject) => {
     const request = new XMLHttpRequest();
-    var url = word ?
+    let url = word ?
       `https://youtube-title-mecab.herokuapp.com/search?word=${word}` : `https://youtube-title-mecab.herokuapp.com/random`;
     request.open("GET", url);
     request.addEventListener("load", (event) => {
@@ -129,6 +133,7 @@ function createView(data) {
         break;
   }
 
+
   html += `</div>`;
   html += `</div>`;
   return html;
@@ -137,4 +142,5 @@ function createView(data) {
 function displayView(view) {
   const result = document.getElementById("result");
   result.innerHTML = view;
+  document.getElementById("title").disabled = "";
 }
