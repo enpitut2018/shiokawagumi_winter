@@ -59,6 +59,7 @@ function createView(data) {
       html += `<p>『${word}』から学んだ${words[1]}のこと</p>`;
       words = _.shuffle(words);
       html += `<p>【架空映画】『${word}と${words[1]}』の架空予告やってみた</p>`;
+        break;
     case "2": //自動車と乗り物
       words = _.shuffle(words);
       html += `<p>${word}の中心で${words[1]}への愛を叫ぶ</p>`;
@@ -66,6 +67,7 @@ function createView(data) {
       html += `<p>${word}で${words[1]}を100倍面白くする方法</p>`;
       words = _.shuffle(words);
       html += `<p>${word}で1人${words[1]}</p>`;
+        break;
     case "10": //音楽、テンプレで
       words = _.shuffle(words);
       html += `<p>${word}の中心で${words[1]}への愛を叫ぶ</p>`;
@@ -79,6 +81,7 @@ function createView(data) {
       html += `<p>【声真似】『${word}』と『${words[1]}』を歌ってみた</p>`;
       words = _.shuffle(words);
       html += `<p>『${word}』と『${words[1]}』をヘリウムガス吸って歌ってみた</p>`;
+        break;
     case "15":  //ペットと動物
       words = _.shuffle(words);
       html += `<p>${word}の中心で${words[1]}への愛を叫ぶ</p>`;
@@ -90,6 +93,7 @@ function createView(data) {
       html += `<p>\[完全${word}\]${words[1]}必勝法</p>`;
       words = _.shuffle(words);
       html += `<p>${word}使って1人${words[1]}</p>`;
+        break;
     case "17":  //スポーツ
       html += `<p>${word}の中心で${words[1]}への愛を叫ぶ</p>`;
       words = _.shuffle(words);
@@ -100,6 +104,7 @@ function createView(data) {
       html += `<p>${word}使って1人${words[1]}</p>`;
       words = _.shuffle(words);
       html += `<p>${word}と${words[1]}で新しい競技を考えてみた</p>`;
+        break;
     case "19": //旅行とイベント
       words = _.shuffle(words);
       html += `<p>${word}で${words[1]}を100倍面白くする方法</p>`;
@@ -109,6 +114,7 @@ function createView(data) {
       html += `<p>${word}の中心で${words[1]}への愛を叫ぶ</p>`;
       words = _.shuffle(words);
       html += `<p>【完全制覇】${words[1]}攻略法</p>`;
+        break;
 
     default:
       words = _.shuffle(words);
@@ -121,6 +127,7 @@ function createView(data) {
       html += `<p>${word}で${words[1]}を100倍面白くする方法</p>`;
       words = _.shuffle(words);
       html += `<p>${word}使って1人${words[1]}</p>`;
+        break;
   }
 
   html += `</div>`;
