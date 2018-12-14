@@ -12,8 +12,7 @@ function getWords(word) {
   return new Promise((resolve, reject) => {
     const request = new XMLHttpRequest();
     var url = word ?
-      // `https://youtube-title-mecab.herokuapp.com/search?word=${word}` : `https://youtube-title-mecab.herokuapp.com/random`;
-      `https:youtube-title-mecab-test.herokuapp.com/search?word=${word}` : `https://youtube-title-mecab-test.herokuapp.com/random`;
+      `https://youtube-title-mecab.herokuapp.com/search?word=${word}` : `https://youtube-title-mecab.herokuapp.com/random`;
     request.open("GET", url);
     request.addEventListener("load", (event) => {
       if (event.target.status !== 200) {
