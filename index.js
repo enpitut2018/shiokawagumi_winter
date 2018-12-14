@@ -1,70 +1,72 @@
 function main() {
-	const word = getWord();
-	console.log(word);
-	getWords(word)
-		.then((words) => createView(words))
-		.then((view) => displayView(view))
-		.catch((error) => {
-			console.error(`エラーが発生しました (${error})`);
-		});
+  const word = getWord();
+  console.log(word);
+  document.getElementById("title").disabled = "disabled";
+  getWords(word)
+    .then((words) => createView(words))
+    .then((view) => displayView(view))
+    .catch((error) => {
+      console.error(`エラーが発生しました (${error})`);
+    });
 }
 
 function getWords(word) {
-	return new Promise((resolve, reject) => {
-		const request = new XMLHttpRequest();
-		let url = word ?
-			`https://youtube-title-mecab.herokuapp.com/search?word=${word}` : `https://youtube-title-mecab.herokuapp.com/random`;
-		request.open("GET", url);
-			request.addEventListener("load", (event) => {
-				if (event.target.status !== 200) {
-					reject(new Error(`${event.target.status}: ${event.target.statusText}`));
-				}
+  return new Promise((resolve, reject) => {
+    const request = new XMLHttpRequest();
+    let url = word ?
+      `https://youtube-title-mecab.herokuapp.com/search?word=${word}` : `https://youtube-title-mecab.herokuapp.com/random`;
+    request.open("GET", url);
+    request.addEventListener("load", (event) => {
+      if (event.target.status !== 200) {
+        reject(new Error(`${event.target.status}: ${event.target.statusText}`));
+      }
 
-				const words = JSON.parse(event.target.responseText);
+      const words = JSON.parse(event.target.responseText);
 
-				console.log(words);
+      console.log(words);
 
-				resolve(words);
-			});
-			request.addEventListener("error", () => {
-				reject(new Error("ネットワークエラー"));
-			});
-			request.send();
-		});
+      resolve(words);
+    });
+    request.addEventListener("error", () => {
+      reject(new Error("ネットワークエラー"));
+    });
+    request.send();
+  });
 }
 
 function getWord() {
-	const value = document.getElementById("word").value;
-	return encodeURIComponent(value);
+  const value = document.getElementById("word").value;
+  return encodeURIComponent(value);
 }
 
 function createView(words) {
-	let html = `<div class="balloon" style="margin-top: 30px;"><div class="container with-title"><h3 class="title">たんご</h3>`
-		+ `<p>${words[0]}, ${words[1]}, ${words[2]}, ${words[3]}</p></div>`;
+  let html = `<div class="balloon" style="margin-top: 30px;"><div class="container with-title"><h3 class="title">たんご</h3>`
+    + `<p>${words[0]}, ${words[1]}, ${words[2]}, ${words[3]}</p></div>`;
 
-	html += `<div class="container with-title"><h3 class="title">たいとる</h3>`;
+  html += `<div class="container with-title"><h3 class="title">たいとる</h3>`;
 
-	// 入力した単語はタイトルに含める
-	let word = words[0];
-	words.shift()
-	// shuffleとtitle
-	words = _.shuffle(words);
-	html += `<p>${word}と${words[1]}一気飲み</p>`;
-	words = _.shuffle(words);
-	html += `<p>${word}の中心で${words[1]}への愛を叫ぶ</p>`;
-	words = _.shuffle(words);
-	html += `<p>\[完全${word}\]${words[1]}必勝法</p>`;
-	words = _.shuffle(words);
-	html += `<p>${word}で${words[1]}を100倍面白くする方法</p>`;
-	words = _.shuffle(words);
-	html += `<p>${word}使って1人${words[1]}</p>`;
+  // 入力した単語はタイトルに含める
+  let word = words[0];
+  words.shift()
+  // shuffleとtitle
+  words = _.shuffle(words);
+  html += `<p>${word}と${words[1]}一気飲み</p>`;
+  words = _.shuffle(words);
+  html += `<p>${word}の中心で${words[1]}への愛を叫ぶ</p>`;
+  words = _.shuffle(words);
+  html += `<p>\[完全${word}\]${words[1]}必勝法</p>`;
+  words = _.shuffle(words);
+  html += `<p>${word}で${words[1]}を100倍面白くする方法</p>`;
+  words = _.shuffle(words);
+  html += `<p>${word}使って1人${words[1]}</p>`;
 
-	html += `</div>`;
-	html += `</div>`;
-	return html;
+  html += `</div>`;
+  html += `</div>`;
+  return html;
 }
 
 function displayView(view) {
-	const result = document.getElementById("result");
-	result.innerHTML = view;
+  const result = document.getElementById("result");
+  result.innerHTML = view;
+  document.getElementById("title").disabled = "";
 }
