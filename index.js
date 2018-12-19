@@ -121,7 +121,7 @@ function createView(data) {
       words = _.shuffle(words);
       html += `<p>${word}使って1人${words[1]}</p>`;
       words = _.shuffle(words);
-      html += `<p>【初見攻略】縛って1人${word}</p>`;
+      html += `<p>【初見攻略】縛りで1人${word}</p>`;
         break;
 
     default:
