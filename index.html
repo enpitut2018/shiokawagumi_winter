@@ -10,13 +10,17 @@
 	<body>
 		<section class="container with-title is-center">
 			<div class="message -rihgt">
-				<p class="balloon">おお　ゆーちゅーばーよ　どうが　たいとるを　おもいつかないとは　なさけない。<br>たんごを　ひとつだけ　にゅうりょくして　たいとるを　せいせい　しなさい。</p>
+				<p class="balloon">おお　ゆーちゅーばーよ　どうが　たいとるを　おもいつかないとは　なさけない。<br>たんごを　ひとつ　にゅうりょくして　たいとるを　せいせい　しなさい。</p>
 			</div>
 			<div>
-					<input type="text" placeholder="マインクラフト" id="word" class="input" >
-					<button type="button" id="title" class="btn" onclick="main();">せいせい</button>
+					<input type="text" placeholder="マインクラフト" id="js-word" class="input" >
+					<button type="button" id="js-title-button" class="btn" onclick="generateTitle();">せいせい</button>
 			</div>
-			<div id="result"></div>
+			<div id="title"></div>
+			<div>
+				<button type="button" id="js-movie-button" class="btn" onclick="getMovies();" style="display:none;">さんこう　どうがを　ひょうじする</button>
+			</div>
+			<div id="movies"></div>
 		</section>
 
 		<script src="underscore-min.js"></script>
