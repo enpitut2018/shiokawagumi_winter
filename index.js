@@ -1,16 +1,8 @@
-<<<<<<< HEAD
-function main() {
-  const word = getWord();
-
-  console.log(word);
-  document.getElementById("title").disabled = "disabled";
-  dispLoading();
-=======
 function generateTitle() {
+  dispLoading();
   const word = document.getElementById("js-word").value;
   document.getElementById("js-title-button").disabled = "disabled";
   document.getElementById("movies").style.display ="none";
->>>>>>> 191b3ec2e84be7dcb2080f0a825d3a6bb9312add
   getWords(word)
     .then((data) => createView(data))
     .then((view) => displayView(view))
@@ -166,12 +158,6 @@ function displayView(view) {
   document.getElementById("js-movie-button").style.display ="";
 }
 
-<<<<<<< HEAD
-function dispLoading(msg){
-  var dispMsg = "<img src=\"sunaloader.gif\" width=\"200\" height=\"200\" border=\"0\" align=\"center\" hspace=\"10\" vspace=\"10\"><div class='loadingMsg'>now loading ...</div>";
-  result.innerHTML = dispMsg;
-}
-=======
 function getMovieIds(words) {
   return new Promise((resolve, reject) => {
     const request = new XMLHttpRequest();
@@ -211,4 +197,7 @@ function displayMovieView(view) {
   movie.style.display ="";
 }
 
->>>>>>> 191b3ec2e84be7dcb2080f0a825d3a6bb9312add
+function dispLoading(){
+  var dispMsg = "<img src=\"sunaloader.gif\" width=\"200\" height=\"200\" border=\"0\" align=\"center\" hspace=\"10\" vspace=\"10\"><div class='loadingMsg'>now loading ...</div>";
+  title.innerHTML = dispMsg;
+}
