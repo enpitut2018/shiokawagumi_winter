@@ -1,8 +1,7 @@
-
 function generateTitle() {
+  dispLoading();
   const word = document.getElementById("js-word").value;
   document.getElementById("js-title-button").disabled = "disabled";
-  dispLoading();
   document.getElementById("movies").style.display ="none";
   getWords(word)
     .then((data) => createView(data))
@@ -159,12 +158,6 @@ function displayView(view) {
   document.getElementById("js-movie-button").style.display ="";
 }
 
-
-function dispLoading(msg){
-  var dispMsg = "<img src=\"sunaloader.gif\" width=\"200\" height=\"200\" border=\"0\" align=\"center\" hspace=\"10\" vspace=\"10\"><div class='loadingMsg'>now loading ...</div>";
-  document.innerHTML = dispMsg;
-}
-
 function getMovieIds(words) {
   return new Promise((resolve, reject) => {
     const request = new XMLHttpRequest();
@@ -204,3 +197,7 @@ function displayMovieView(view) {
   movie.style.display ="";
 }
 
+function dispLoading(){
+  var dispMsg = "<img src=\"sunaloader.gif\" width=\"200\" height=\"200\" border=\"0\" align=\"center\" hspace=\"10\" vspace=\"10\"><div class='loadingMsg'>now loading ...</div>";
+  title.innerHTML = dispMsg;
+}
