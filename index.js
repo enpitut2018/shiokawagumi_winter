@@ -1,4 +1,4 @@
-unction generateTitle() {
+function generateTitle() {
   dispLoading();
   const word = document.getElementById("js-word").value;
   document.getElementById("js-title-button").disabled = "disabled";
