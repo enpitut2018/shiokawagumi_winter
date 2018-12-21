@@ -3,6 +3,7 @@ function main() {
 
   console.log(word);
   document.getElementById("title").disabled = "disabled";
+  dispLoading();
   getWords(word)
     .then((words) => createView(words))
 
@@ -144,3 +145,9 @@ function displayView(view) {
   result.innerHTML = view;
   document.getElementById("title").disabled = "";
 }
+
+function dispLoading(msg){
+  var dispMsg = "<img src=\"sunaloader.gif\" width=\"200\" height=\"200\" border=\"0\" align=\"center\" hspace=\"10\" vspace=\"10\"><div class='loadingMsg'>now loading ...</div>";
+  result.innerHTML = dispMsg;
+}
+
