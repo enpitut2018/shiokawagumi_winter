@@ -2,6 +2,7 @@ function generateTitle() {
   dispLoading();
   const word = document.getElementById("js-word").value;
   document.getElementById("js-title-button").disabled = "disabled";
+  document.getElementById("js-movie-button").style.display ="none";
   document.getElementById("movies").style.display ="none";
   getWords(word)
     .then((data) => createView(data))
