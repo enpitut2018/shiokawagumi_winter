@@ -1,4 +1,5 @@
 function generateTitle() {
+  dispLoading();
   const word = document.getElementById("js-word").value;
   document.getElementById("js-title-button").disabled = "disabled";
   document.getElementById("movies").style.display ="none";
@@ -68,14 +69,6 @@ function createView(data) {
       words = _.shuffle(words);
       html += `<p>【架空映画】『${word}と${words[1]}』の架空予告やってみた</p>`;
         break;
-    case "2": //自動車と乗り物
-      words = _.shuffle(words);
-      html += `<p>${word}の中心で${words[1]}への愛を叫ぶ</p>`;
-      words = _.shuffle(words);
-      html += `<p>${word}で${words[1]}を100倍面白くする方法</p>`;
-      words = _.shuffle(words);
-      html += `<p>${word}で1人${words[1]}</p>`;
-        break;
     case "10": //音楽、テンプレで
       words = _.shuffle(words);
       html += `<p>${word}の中心で${words[1]}への愛を叫ぶ</p>`;
@@ -123,10 +116,21 @@ function createView(data) {
       words = _.shuffle(words);
       html += `<p>【完全制覇】${words[1]}攻略法</p>`;
         break;
+    
+    case "20": //game
+      words = _.shuffle(words);
+      html += `<p>${word}の中心で${words[1]}への愛を叫ぶ</p>`;
+      words = _.shuffle(words);
+      html += `<p>【完全${word}】${words[1]}必勝法</p>`;
+      words = _.shuffle(words);
+      html += `<p>${word}で${words[1]}を100倍面白くする方法</p>`;
+      words = _.shuffle(words);
+      html += `<p>${word}使って1人${words[1]}</p>`;
+      words = _.shuffle(words);
+      html += `<p>【初見攻略】縛りで1人${word}</p>`;
+        break;
 
     default:
-      words = _.shuffle(words);
-      html += `<p>${word}と${words[1]}一気飲み</p>`;
       words = _.shuffle(words);
       html += `<p>${word}の中心で${words[1]}への愛を叫ぶ</p>`;
       words = _.shuffle(words);
@@ -135,6 +139,8 @@ function createView(data) {
       html += `<p>${word}で${words[1]}を100倍面白くする方法</p>`;
       words = _.shuffle(words);
       html += `<p>${word}使って1人${words[1]}</p>`;
+      words = _.shuffle(words);
+      html += `<p>【頑張った】${word}と${words[1]}を全力で自作</p>`;
         break;
   }
 
@@ -191,3 +197,7 @@ function displayMovieView(view) {
   movie.style.display ="";
 }
 
+function dispLoading(){
+  var dispMsg = "<img src=\"sunaloader.gif\" width=\"200\" height=\"200\" border=\"0\" align=\"center\" hspace=\"10\" vspace=\"10\"><div class='loadingMsg'>now loading ...</div>";
+  title.innerHTML = dispMsg;
+}
