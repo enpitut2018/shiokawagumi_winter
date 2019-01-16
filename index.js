@@ -54,7 +54,7 @@ function getWords(word) {
 function createView(data) {
   let words = data.words;
   let html = `<div class="balloon" style="margin-top: 30px;"><div class="container with-title"><h3 class="title">たんご</h3>`
-    + `<p><var class="js-words">${words[0]}</var>, <var class="js-words">${words[1]}</var>, <var class="js-words">${words[2]}</var>, <var class="js-words">${words[3]}</var></p></div>`;
+    + `<p><var class="js-words words">${words[0]}</var>, <var class="js-words words">${words[1]}</var>, <var class="js-words words">${words[2]}</var>, <var class="js-words words">${words[3]}</var></p></div>`;
 
   html += `<div class="container with-title"><h3 class="title">たいとる</h3>`;
 
