@@ -4,7 +4,7 @@
 ## URL
   - https://title-generator-for-youtuber.herokuapp.com/
 ## 使い方
-  - [https://title-generator-for-youtuber.herokuapp.com/](ここ)にアクセスし、単語を一つ入力する
+  - [ここ](https://title-generator-for-youtuber.herokuapp.com/)にアクセスし、単語を一つ入力する
 
 ## メンバー
   - https://github.com/kyonezu
@@ -21,5 +21,6 @@
   - これであなたも人気YouTuberになれるかもしれません
   - ※人気YouTuberになれることを100%保証するアプリではありません
 
+***
 ### API
-  - APIは[https://github.com/enpitut2018/shiokawagumi_winter/tree/api](こちら)
+  - APIは[こちら](https://github.com/enpitut2018/shiokawagumi_winter/tree/api)
