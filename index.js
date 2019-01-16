@@ -1,8 +1,12 @@
 function generateTitle() {
-  dispLoading();
-  const word = document.getElementById("js-word").value;
+  dispLoading(title);
+  let word = document.getElementById("js-word").value;
+  // ボタンを複数回おしてもリクエストは一回
   document.getElementById("js-title-button").disabled = "disabled";
-  document.getElementById("movies").style.display ="none";
+  // 前回の関連ビデオ非表示
+  document.getElementById("videos").style.display ="none";
+  // 関連ビデオボタン非表示
+  document.getElementById("js-video-button").style.display ="none";
   getWords(word)
     .then((data) => createView(data))
     .then((view) => displayView(view))
@@ -11,13 +15,15 @@ function generateTitle() {
     });
 }
 
-function getMovies() {
-  const words = document.getElementsByClassName("js-words");
+function getVideos() {
+  dispLoading(videos);
+  let words = document.getElementsByClassName("js-words");
   console.log(words);
-  document.getElementById("js-movie-button").style.display ="none";
-  getMovieIds(words)
-    .then((data) => createMovieView(data))
-    .then((view) => displayMovieView(view))
+  // 関連ビデオボタン非表示
+  document.getElementById("js-video-button").style.display ="none";
+  getVideoIds(words)
+    .then((data) => createVideoView(data))
+    .then((view) => displayVideoView(view))
     .catch((error) => {
      console.error(`エラーが発生しました (${error})`);
     });
@@ -34,7 +40,7 @@ function getWords(word) {
         reject(new Error(`${event.target.status}: ${event.target.statusText}`));
       }
 
-      const data = JSON.parse(event.target.responseText);
+      let data = JSON.parse(event.target.responseText);
       console.log(data);
       resolve(data);
     });
@@ -48,7 +54,7 @@ function getWords(word) {
 function createView(data) {
   let words = data.words;
   let html = `<div class="balloon" style="margin-top: 30px;"><div class="container with-title"><h3 class="title">たんご</h3>`
-    + `<p><var class="js-words">${words[0]}</var>, <var class="js-words">${words[1]}</var>, <var class="js-words">${words[2]}</var>, <var class="js-words">${words[3]}</var></p></div>`;
+    + `<p><var class="js-words words">${words[0]}</var>, <var class="js-words words">${words[1]}</var>, <var class="js-words words">${words[2]}</var>, <var class="js-words words">${words[3]}</var></p></div>`;
 
   html += `<div class="container with-title"><h3 class="title">たいとる</h3>`;
 
@@ -150,26 +156,26 @@ function createView(data) {
 }
 
 function displayView(view) {
-  const title = document.getElementById("title");
+  let title = document.getElementById("title");
   title.innerHTML = view;
   // 生成ボタン有効
   document.getElementById("js-title-button").disabled = "";
   // 動画ボタン表示
-  document.getElementById("js-movie-button").style.display ="";
+  document.getElementById("js-video-button").style.display ="";
 }
 
-function getMovieIds(words) {
+function getVideoIds(words) {
   return new Promise((resolve, reject) => {
     const request = new XMLHttpRequest();
     let url =
-      `https://youtube-title-mecab-test.herokuapp.com/movie?words=${words[0].innerHTML}&words=${words[1].innerHTML}&words=${words[2].innerHTML}&words=${words[3].innerHTML}`;
+      `https://youtube-title-mecab.herokuapp.com/movie?words=${words[0].innerHTML}&words=${words[1].innerHTML}&words=${words[2].innerHTML}&words=${words[3].innerHTML}`;
     console.log(url);
     request.open("GET", url);
     request.addEventListener("load", (event) => {
       if (event.target.status !== 200) {
         reject(new Error(`${event.target.status}: ${event.target.statusText}`));
       }
-      const data = JSON.parse(event.target.responseText);
+      let data = JSON.parse(event.target.responseText);
       console.log(data);
       resolve(data);
     });
@@ -180,24 +186,25 @@ function getMovieIds(words) {
   });
 }
 
-function createMovieView(data) {
-  let movieIds = data.url;
+function createVideoView(data) {
+  let videoIds = data.url;
   let html = `<div class="balloon" style="margin-top: 30px;"><div class="container with-title"><h3 class="title">どうが</h3>`
-  for (let i = 0; i < movieIds.length; i++) {
-    html += `<iframe src="https://www.youtube.com/embed/${movieIds[i]}" frameborder="0" allowfullscreen></iframe>`
+  for (let i = 0; i < videoIds.length; i++) {
+    html += `<iframe src="https://www.youtube.com/embed/${videoIds[i]}" frameborder="0" allowfullscreen></iframe>`
   }
   html += `</div>`;
   html += `</div>`;
   return html;
 }
 
-function displayMovieView(view) {
-  const movie = document.getElementById("movies");
-  movie.innerHTML = view;
-  movie.style.display ="";
+function displayVideoView(view) {
+  let videos = document.getElementById("videos");
+  videos.innerHTML = view;
+  videos.style.display ="";
 }
 
-function dispLoading(){
+function dispLoading(e){
   var dispMsg = "<img src=\"sunaloader.gif\" width=\"200\" height=\"200\" border=\"0\" align=\"center\" hspace=\"10\" vspace=\"10\"><div class='loadingMsg'>now loading ...</div>";
-  title.innerHTML = dispMsg;
+  e.style.display ="";
+  e.innerHTML = dispMsg;
 }
