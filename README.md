@@ -20,3 +20,6 @@
   - 動画の中身からタイトルを考えるのではなく「タイトルでお題を出されてから動画を撮る」という企画動画も撮れます
   - これであなたも人気YouTuberになれるかもしれません
   - ※人気YouTuberになれることを100%保証するアプリではありません
+
+### API
+  - APIは[https://github.com/enpitut2018/shiokawagumi_winter/tree/api](こちら)
