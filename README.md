@@ -7,7 +7,7 @@
   - [ここ](https://title-generator-for-youtuber.herokuapp.com/)にアクセスし、単語を一つ入力する
 
 ## メンバー
-  - https://github.com/kyonezu
+  - https://github.com/k-yonezu
   - https://github.com/yjunya
   - https://github.com/iguchyu
   - https://github.com/karima-n
